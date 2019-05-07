@@ -1,10 +1,10 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        if (nums.size() == 0)
-            return 0;
-
         int len = nums.size();
+        
+        if (len == 0) return 0;
+
         int prev = nums[len-1] + 1;        
         int j = 0;
 
