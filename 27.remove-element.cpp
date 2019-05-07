@@ -20,6 +20,7 @@ public:
             if (nums[i] != val) {
                 swap(nums[i], nums[target]);
                 target = findNextTarget(nums, target + 1, val);
+                i = target;
             }
         }
         return target;
