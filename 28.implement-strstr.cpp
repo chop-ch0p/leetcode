@@ -6,26 +6,14 @@ public:
 
         if (nLen == 0) return 0;
 
-        for (int i = 0; i < hLen; ++i) {
-            if (haystack[i] != needle[0]) {
-                continue;
-            }
-            ++i;
-            int next = -1;
-            int ni = 1;
-            for (; ni < nLen, i < hLen; ++ni, ++i) {
-                if (next == -1 && haystack[i] == needle[0])
-                    next = i;
-                
-                if (haystack[i] != needle[ni]) break;
-            }
+        const char* hstr = haystack.c_str();
+        const char* nstr = needle.c_str();
 
-            if (ni == nLen) return i - nLen;
-
-            if (next > 0)
-                i = next - 1;
-            else
-                i += ni - 1;
+        for (int i = 0; i < hLen - nLen + 1; ++i) {
+            if (hstr[i] == nstr[0]) {
+                if (memcmp(hstr + i, nstr, nLen) == 0) return i;
+            }
+            
         }
         return -1;
     }
