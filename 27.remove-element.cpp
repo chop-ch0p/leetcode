@@ -19,7 +19,7 @@ public:
         for(int i = target+1; i < len; ++i) {
             if (nums[i] != val) {
                 swap(nums[i], nums[target]);
-                target = findNextTarget(nums, target, val);
+                target = findNextTarget(nums, target + 1, val);
             }
         }
         return target;
