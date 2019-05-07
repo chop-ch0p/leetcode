@@ -24,6 +24,8 @@ public:
 
             if (next > 0)
                 i = next - 1;
+            else
+                i += ni - 1;
         }
         return -1;
     }
