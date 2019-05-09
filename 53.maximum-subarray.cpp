@@ -3,11 +3,12 @@ public:
     int maxSubArray(vector<int>& nums) {
         int max = nums[0];
         int sum = 0;
-        
-        for (auto i : nums) {
-            if (sum + i < i) sum = i;
+        int len = nums.size();
+
+        for (int i = 0; i < len; i++) {
+            if (sum + nums[i] < nums[i]) sum = nums[i];
             else
-                sum += i;
+                sum += nums[i];
 
             if (max < sum) max = sum;
         }
