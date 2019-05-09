@@ -19,17 +19,18 @@ public:
 
         next.push_back(root);
 
-
         while ( next.size() > 0 ) {
             cur.clear();
             cur.swap(next);
             arr.clear();
-            for(auto i : cur) {
-                arr.push_back(i->val);
-                if (i->left)
-                    next.push_back(i->left);
-                if (i->right)
-                    next.push_back(i->right);
+            int len = cur.size();
+
+            for (int i = 0; i < len; i++) {
+                arr.push_back(cur[i]->val);
+                if (cur[i]->left)
+                    next.push_back(cur[i]->left);
+                if (cur[i]->right)
+                    next.push_back(cur[i]->right);
             }
 
             result.insert(result.begin(), arr);
